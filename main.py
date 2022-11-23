@@ -1,6 +1,4 @@
-from fastapi import FastAPI
-from starlette.staticfiles import StaticFiles
-from starlette.middleware.cors import CORSMiddleware
+import time
 
 import yandex_food_parser
 from config import database
@@ -14,5 +12,7 @@ def main():
     while True:
         xs = xlsx_request_repository.find_not_started(session)
         for xlsx_request_vo in xs:
-            process_xlsx(session, xlsx_request_vo)
+            yandex_food_parser.process_xlsx(session, xlsx_request_vo)
         time.sleep(5)
+
+main()

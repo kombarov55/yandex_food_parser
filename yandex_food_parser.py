@@ -172,4 +172,3 @@ def process_xlsx(session: Session, xlsx_request_vo: XlsxRequestVO):
         xlsx_request_vo.end_date = datetime.now()
         xlsx_request_repository.update(session, xlsx_request_vo)
         print("completed")
-# main()
